@@ -1,5 +1,10 @@
 
-import {createStore, combineReducers} from 'redux'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
 import {todos, visibilityFilter} from '../reducer/reducers'
+import thunk from 'redux-thunk';
 
-export default createStore(combineReducers({todos, visibilityFilter}));
+const logger =(store) =>(next) =>(action) =>{
+    console.log(action);
+    next(action);
+}
+export default createStore(combineReducers({todos, visibilityFilter}), applyMiddleware(logger,thunk) );

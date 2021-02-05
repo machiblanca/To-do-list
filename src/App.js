@@ -1,21 +1,18 @@
 
+import React from 'react'
 import './App.css';
-import AddTodo from './components/AddTodo';
-import TodoList from './components/TodoList';
-import VisibilityFilter from './components/VisibilityFilter';
+import Header from './components/Header'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 function App() {
+
   return (
     <div className="App">
-      <h1>TO DO LIST</h1>
-      <AddTodo/>
-      <TodoList />
-      <div>
-      <VisibilityFilter />
-    </div>
+      <Header />
      
     </div>
   );
 }
-
 
 export default App;

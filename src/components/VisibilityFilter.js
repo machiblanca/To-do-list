@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { setFilter } from '../redux/actions'
 import { Filters } from '../redux/actionTypes'
 
-function VisibilityFilter({ setFilter}) {
+function VisibilityFilter({activeFilter, setFilter}) {
     return (
         Filters.map((filter, i) => (
             <button
-             //   className={filter === activeFilter ? 'active' : ''} //Add parameter activefilter for use this className
+                className={filter === activeFilter ? 'active' : ''} //Add parameter activefilter for use this className
                onClick={() => setFilter(filter)}
                 key={i}
               >
@@ -18,5 +18,5 @@ function VisibilityFilter({ setFilter}) {
     )
 }
 //use this when use className and in 'null' replace for mapState
-//const mapState = (state) => ({ activeFilter: state.visibilityFilter.activeFilter })
-export default connect(null, { setFilter })(VisibilityFilter)
+const mapState = (state) => ({ activeFilter: state.visibilityFilter.activeFilter })
+export default connect(mapState, { setFilter })(VisibilityFilter)
